@@ -2,15 +2,17 @@
 #include <algorithm>
 
 #include "user.h"
+#include <iomanip>
 
 using namespace std;
+
+int User::nextId = 1;
 
 // Default constructor
 User::User() : name(""), userId("") {}
 
 // Parameterized constructor
-User::User(const string& name, const string& userId) 
-    : name(name), userId(userId) {}
+User::User(const string& name) : name(name), userId(userId) {}
 
 // Getters
 string User::getName() const { return name; }
@@ -90,4 +92,10 @@ void User::fromFileFormat(const string& line) {
             borrowedBooks.push_back(isbn);
         }
     }
+}
+
+void User::generateUserId() {
+    stringstream ss;
+    ss << "USR" << setw(3) << setfill('0') << nextId++;
+    userId = ss.str();
 }

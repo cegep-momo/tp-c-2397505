@@ -11,6 +11,7 @@ private:
     string name;
     string userId;
     static int nextId;
+    void generateUserId();
     vector<string> borrowedBooks; // Store ISBNs of borrowed books
 
 public:
