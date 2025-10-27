@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <ctime>
 
 #include "library.h"
 
@@ -144,6 +145,19 @@ bool Library::returnBook(const string& isbn) {
         return true;
     }
     return false;
+}
+
+// Log activité
+void Library::logActivite(const string& action, const string& userId, const string& isbn) {
+    time_t tmm = time(0);
+    tm* dt = localtime(&tmm);
+    char temps[20];
+    strftime(temps, sizeof(temps), "%Y-%m-%d %H:%M:%S", dt);
+    ofstream log("activity.log", ios::app);
+    if (log.is_open()) {
+        log << "[" << temps << "] " << action << " : " << userId << " / " << isbn << ".\n";
+        log.close();
+    }
 }
 
 // Display all books
