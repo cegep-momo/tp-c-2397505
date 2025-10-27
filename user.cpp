@@ -9,10 +9,14 @@ using namespace std;
 int User::nextId = 1;
 
 // Default constructor
-User::User() : name(""), userId("") {}
+User::User() : name("") {
+    generateUserId();
+}
 
 // Parameterized constructor
-User::User(const string& name) : name(name), userId(userId) {}
+User::User(const string& name) : name(name) {
+    generateUserId();
+}
 
 // Getters
 string User::getName() const { return name; }
