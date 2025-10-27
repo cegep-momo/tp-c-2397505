@@ -124,6 +124,7 @@ bool Library::checkOutBook(const string& isbn, const string& userId) {
     if (book && user && book->getAvailability()) {
         book->checkOut(user->getName());
         user->borrowBook(isbn);
+        logActivite("Emprunt", userId, isbn);
         return true;
     }
     return false;
@@ -138,6 +139,7 @@ bool Library::returnBook(const string& isbn) {
         for (auto& user : users) {
             if (user->hasBorrowedBook(isbn)) {
                 user->returnBook(isbn);
+                logActivite("Retour", user->getUserId(), isbn);
                 break;
             }
         }
