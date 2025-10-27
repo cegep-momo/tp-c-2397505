@@ -200,6 +200,13 @@ void Library::triLivresTitre() {
     });
 }
 
+// Tri par Auteur
+void Library::triLivresAuteur() {
+    sort(books.begin(), books.end(), [](const unique_ptr<Book>& a, const unique_ptr<Book>& b) {
+        return a->getAuthor() < b->getAuthor();
+    });
+}
+
 
 // Statistics
 int Library::getTotalBooks() const { return books.size(); }

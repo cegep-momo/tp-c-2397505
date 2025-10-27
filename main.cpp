@@ -33,6 +33,7 @@ void displayMenu() {
     cout << "12. Sauvegarder les Données\n";
     cout << "13. Créer une Sauvegarde\n";
     cout << "14. Trier les Livres par Titre\n";
+    cout << "15. Trier les Livres par Auteur\n";
     cout << "0.  Quitter\n";
     cout << "======================================================\n";
     cout << "Entrez votre choix : ";
@@ -210,7 +211,14 @@ int main() {
             
             case 14: {  // Tri par titre
                 library.triLivresTitre();
-                cout << "Livres triés par titre avec succès.\n";
+                cout << "Livres triés par titre avec succès. Sauvegardez!\n";
+                pauseForInput();
+                break;
+            }
+
+            case 15: {  // Tri par auteur
+                library.triLivresAuteur();
+                cout << "Livres triés par auteur avec succès. Sauvegardez avant pour voir!\n";
                 pauseForInput();
                 break;
             }
