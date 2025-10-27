@@ -41,6 +41,10 @@ public:
     void displayAllBooks();
     void displayAvailableBooks();
     void displayAllUsers();
+
+    // Méthode tri
+    void triLivresTitre();
+    void triLivresAuteur();
     
     // Statistics
     int getTotalBooks() const;
