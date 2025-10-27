@@ -193,6 +193,14 @@ void Library::displayAllUsers() {
     }
 }
 
+// Tri par Titre
+void Library::triLivresTitre() {
+    sort(books.begin(), books.end(), [](const unique_ptr<Book>& a, const unique_ptr<Book>& b) {
+        return a->getTitle() < b->getTitle();
+    });
+}
+
+
 // Statistics
 int Library::getTotalBooks() const { return books.size(); }
 int Library::getAvailableBookCount() const {
