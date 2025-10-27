@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <filesystem>
+#include "user.h"
 #include "filemanager.h"
 
 using namespace std;
@@ -89,15 +90,24 @@ bool FileManager::loadUsersFromFile(Library& library) {
     
     string line;
     int count = 0;
+    int maxId = 0;
     while (getline(file, line)) {
         if (!line.empty()) {
             User user;
             user.fromFileFormat(line);
             library.addUser(user);
             count++;
+
+            string id = user.getUserId();
+            if (id.rfind("USR", 0) == 0 && id.size() > 3) {
+                int num = stoi(id.substr(3));
+                if (num > maxId)
+                    maxId = num;
+            }
         }
     }
-    
+
+    User::setNextId(maxId + 1);
     file.close();
     cout << "Chargé " << count << " utilisateur(s) depuis le fichier.\n";
     return true;

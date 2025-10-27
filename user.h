@@ -27,6 +27,7 @@ public:
     // Setters
     void setName(const string& name);
     void setUserId(const string& userId);
+    static void setNextId(int value);
     
     // Methods
     void borrowBook(const string& isbn);

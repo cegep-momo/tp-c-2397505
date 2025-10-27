@@ -98,6 +98,10 @@ void User::fromFileFormat(const string& line) {
     }
 }
 
+void User::setNextId(int value) {
+    nextId = value;
+}
+
 void User::generateUserId() {
     stringstream ss;
     ss << "USR" << setw(3) << setfill('0') << nextId++;
