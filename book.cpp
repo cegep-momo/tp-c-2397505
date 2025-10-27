@@ -35,27 +35,27 @@ void Book::returnBook() {
     borrowerName = "";
 }
 
-void Book::toString() const {
-    cout << title << " — " << author << " (" << isbn << ")";
+string Book::toString() const {
+    string resultat = title + " — " + author + " (" + isbn + ")";
     if (isAvailable)
-        cout << " [Disponible]";
+        resultat += " [Disponible]";
     else
-        cout << " [Emprunté par " << borrowerName << "]";
-    cout << endl;
+        resultat += " [Emprunté par " + borrowerName + "]";
+    return resultat;
 }
 
 string Book::toFileFormat() const {
-    string line = title + ";" + author + ";" + isbn + ";";
+    string line = title + "|" + author + "|" + isbn + "|";
     line += (isAvailable ? "1" : "0");
-    line += ";" + borrowerName;
+    line += "|" + borrowerName;
     return line;
 }
 
 void Book::fromFileFormat(const string& line) {
-    int pos1 = line.find(';');
-    int pos2 = line.find(';', pos1 + 1);
-    int pos3 = line.find(';', pos2 + 1);
-    int pos4 = line.find(';', pos3 + 1);
+    int pos1 = line.find('|');
+    int pos2 = line.find('|', pos1 + 1);
+    int pos3 = line.find('|', pos2 + 1);
+    int pos4 = line.find('|', pos3 + 1);
     title = line.substr(0, pos1);
     author = line.substr(pos1 + 1, pos2 - pos1 - 1);
     isbn = line.substr(pos2 + 1, pos3 - pos2 - 1);

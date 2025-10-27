@@ -35,7 +35,7 @@ public:
     // Methods
     void checkOut(const string& borrower);
     void returnBook();
-    void toString() const;
+    string toString() const;
     string toFileFormat() const;
     void fromFileFormat(const string& line);
 };
