@@ -10,12 +10,13 @@ class User {
 private:
     string name;
     string userId;
+    static int nextId;
     vector<string> borrowedBooks; // Store ISBNs of borrowed books
 
 public:
     // Constructors
     User();
-    User(const string& name, const string& userId);
+    User(const string& name);
     
     // Getters
     string getName() const;
