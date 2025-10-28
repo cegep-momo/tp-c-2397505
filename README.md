@@ -12,7 +12,7 @@ $ make
 
 # Répertoire data
 
-Il contient 2 fichiers `books.txt`et `users.txt` que vous pouvez utilisez pour tester votre code.
+Il contient 2 fichiers `books.txt`et `users.txt` que vous pouvez utilisez pour tester votre code..
 Pour ca il suffit de les copiers dans le repertoire `build` avec l'application `bibliotheque`
 
 # Question 1
