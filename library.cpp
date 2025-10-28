@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <ctime>
+#include <fstream>
 
 #include "library.h"
 
@@ -155,7 +155,7 @@ void Library::logActivite(const string& action, const string& userId, const stri
     tm* dt = localtime(&tmm);
     char temps[20];
     strftime(temps, sizeof(temps), "%Y-%m-%d %H:%M:%S", dt);
-    ofstream log("activity.log", ios::app);
+    ofstream log("activite.log", ios::app);
     if (log.is_open()) {
         log << "[" << temps << "] " << action << " : " << userId << " / " << isbn << ".\n";
         log.close();
